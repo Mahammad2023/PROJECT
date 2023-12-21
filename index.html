@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>PROJECT</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="data:image/png;base64,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"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/comment.css' rel='stylesheet'>
+</head>
+<body>
+<div class="main1">
+
+ <div class="first">
+ <div class="overlay">
+
+
+<div class="main">
+<div class="one1 box1"><a href="" class="box1">HOME</a></div>
+<div class="two2 box1"><a href="" class="box1">PORTFOLIO</a></div>
+<div class="four3 box1"><a href="" class="box1">RESUME</a></div>
+<div class="five4 box1"><a href="" class="box1">ABOUT</a></div>
+<div class="six5 box1"><a href="" class="box1">CONTACT</a></div>
+</div>
+
+
+<div class="finger">
+   <h1 class="finger1">Hello,I'm</h1>
+   <h1 class="finger2">Charles Anderson</h1>
+   <h1 class="finger3">AND THIS IS MY REZUME</h1>
+</div>
+
+</div>
+</div>
+
+
+
+<span class="one">Featured
+   <strong class="lake1">Portfolio</strong>
+ </span>
+
+ <div class="two">
+    <div><a href="" class="box all">All</a></div>
+    <div><a href="" class="box">Paskaging</a></div>
+    <div><a href="" class="box">Mockup</a></div>
+    <div><a href="" class="box">Typography</a></div>
+    <div><a href="" class="box">Photography</a></div>
+ </div>
+
+ 
+ <div class="four">
+ <div class="main2">
+  <img src="https://preview.colorlib.com/theme/rezume/images/p1.jpg.webp" alt="">
+
+  <p class="box2">Square Box Mockup</p>
+  <p class="box3">MOCKUP</p>
+  </div>
+  
+  
+
+ <div class="main2">
+ <img src="https://preview.colorlib.com/theme/rezume/images/p2.jpg.webp" alt="">
+
+ <p class="box2">Product Box Package Mockup</p>
+  <p class="box3">MOCKUP</p>
+ </div>
+  
+  <div class="main2">
+ <img src="https://preview.colorlib.com/theme/rezume/images/p3.jpg.webp" alt="">
+
+ <p class="box2">Creative Package Design</p>
+ <p class="box3">PACKAGİNG</p>
+ </div>
+  
+  <div class="main2">
+    <img src="https://preview.colorlib.com/theme/rezume/images/p4.jpg.webp" alt="">
+
+  <p class="box2">Packaging Brand</p>
+  <p class="box3">PACKAGİNG</p>
+  </div>
+
+  <div class="main2">
+   <img src="https://preview.colorlib.com/theme/rezume/images/p5.jpg.webp" alt="">
+
+   <p class="box2">Isometric 3D Extrusion</p>
+   <p class="box3">TYPOGRAPHY</p>
+  </div>
+ 
+  <div class="main2">
+  <img src="https://preview.colorlib.com/theme/rezume/images/p6.jpg.webp" alt="">
+
+  <p class="box2">White Space Photography</p>
+   <p class="box3">PHOTOGRAPHY</p>
+  </div>
+   
+ </div>
+  
+ <span class="lady">My
+   <strong class="lake">Resume</strong>
+ </span>
+
+<div class="lady2">
+    <h2>Education</h2>
+</div>
+
+<div class="lady3">
+    <h2>Experience</h2>
+</div>
+
+
+<div class="money">
+    
+<div class="man1">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man42 fell">Masteral in Information Technology</p>  
+   <p class="man43 second">Even the all-powerful Pointing has no control about the blind texts it is
+</p>
+<p class="lego">an almost unorthographic.</p>  
+   <p class="man44 nine">New York University</p>  
+</div>
+<div class="man2">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man47 fell">Lead Product Designer</p>  
+   <p class="man48 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p>
+
+   <p class="man49 nine">Github</p>  
+</div>
+<div class="man3">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man13 fell">Masteral in Information Technology</p>  
+   <p class="man14 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p> 
+   <p class="man15 nine">New York University</p>  
+</div>
+<div class="man4">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man17 fell">Lead Product Designer</p>  
+   <p class="man18 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p>  
+   <p class="man19 nine">Github</p>  
+</div>
+<div class="man5">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man21 fell">Masteral in Information Technology</p>  
+   <p class="man22 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p> 
+   <p class="man23 nine">New York University</p>  
+</div>
+<div class="man6">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man25 fell">Lead Product Designer</p>  
+   <p class="man26 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p>  
+   <p class="man27 nine">Github</p>  
+</div>
+<div class="man7">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man29 fell">Masteral in Information Technology</p>  
+   <p class="man30 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p>  
+   <p class="man31 nine">New York University</p>  
+</div>
+<div class="man8">
+   <i class="fa fa-calendar">March 2013 - Present</i>
+   <p class="man33 fell">Lead Product Designer</p>  
+   <p class="man34 second">Even the all-powerful Pointing has no control about the blind texts it is
+   </p>
+   <p class="lego">an almost unorthographic.</p>  
+   <p class="man35 nine">Github</p>  
+</div>
+</div>
+
+<div class="been">
+
+<img class="lake3" src="https://preview.colorlib.com/theme/rezume/images/image_1.jpg.webp" alt="Photography">
+</div>
+<span class="man66">About
+   <strong class="lake11">Me</strong>
+   </span>
+<p class="lake2">Separated they live in Bookmarksgrove right at</p>
+<p class="lake4">the coast of the Semantics, a large language</p>
+<p class="lake3">ocean.</p>
+<p class="lake5">small river named Duden flows by their place and supplies</p>
+<p class="lake6">it with the necessary regelialia. It is a paradisematic country,</p>
+<p class="lake7">in which roasted parts of sentences fly into your mouth.</p>
+
+<div>
+<p class="lake9"><a href="">HIRE ME</a></p>
+</div>
+<div>
+<p class="lake10"><a href="">DOWNLOAD CV</a></p>
+</div>
+
+<span class="tennis">Client 
+<strong class="lost">Testimonial</strong>
+</span>
+
+<div class="phone6">
+   
+<div class="mouse">
+   <img class="mouse1" src="https://preview.colorlib.com/theme/rezume/images/person_1.jpg.webp" alt="photo">
+</div>
+<div class="sugar">
+   <p class="phone1">“Far far away, behind the word mountains, far from the</p>
+   <p class="phone2">countries Vokalia and Consonantia, there live the blind</p>
+   <p class="phone3">texts. Separated they live in Bookmarksgrove right at the</p>
+   <p class="phone4">coast of the Semantics, a large language ocean.”</p>
+   <p class="phone5">— Ethan McCown, CEO <span class="finger5">XYZ Inc.</span></p>
+</div>
+
+<div class="mouse">
+   <img class="mouse1" src="https://preview.colorlib.com/theme/rezume/images/person_2.jpg.webp" alt="photo">
+</div>
+<div class="sugar1">
+   <p class="phone1">“Far far away, behind the word mountains, far from the</p>
+   <p class="phone2">countries Vokalia and Consonantia, there live the blind</p>
+   <p class="phone3">texts. Separated they live in Bookmarksgrove right at the</p>
+   <p class="phone4">coast of the Semantics, a large language ocean.”</p>
+   <p class="phone5">— Craig Gowen, CEO <span class="finger5">XYZ Inc.</span></p>
+</div>
+
+<div class="sugar4">
+   <p class="phone1">“Far far away, behind the word mountains, far from the</p>
+   <p class="phone2">countries Vokalia and Consonantia, there live the blind</p>
+   <p class="phone3">texts. Separated they live in Bookmarksgrove right at the</p>
+   <p class="phone4">coast of the Semantics, a large language ocean.”</p>
+   <p class="phone5">— Ethan McCown, CEO <span class="finger5">XYZ Inc.</span></p>
+</div>
+<div class="mouse">
+   <img class="mouse1 pen" src="https://preview.colorlib.com/theme/rezume/images/person_3.jpg.webp" alt="photo">
+</div>
+
+<div class="mouse">
+   <img class="mouse1" src="https://preview.colorlib.com/theme/rezume/images/person_4.jpg.webp" alt="photo">
+</div>
+
+<div class="sugar2">
+   <p class="phone1">“Far far away, behind the word mountains, far from the</p>
+   <p class="phone2">countries Vokalia and Consonantia, there live the blind</p>
+   <p class="phone3">texts. Separated they live in Bookmarksgrove right at the</p>
+   <p class="phone4">coast of the Semantics, a large language ocean.”</p>
+   <p class="phone5">— Craig Gowen, CEO <span class="finger5">XYZ Inc.</span></p>
+</div>
+</div>
+
+<span class="long">My 
+<strong class="long9">Services</strong>
+</span>
+
+<div class="page">
+<div class="long1">
+<img class="long2" src="https://cdn3.iconfinder.com/data/icons/seo-and-internet-marketing-12/512/65-256.png" alt="">
+<h2 class="long3">Web Design</h2>
+<p class="long4">Far far away, behind the word mountains,</p>
+<p class="long4">far from the countries Vokalia and</p>
+<p class="long4">Consonantia, there live the blind texts.</p>
+<p class="long4">Separated they live in Bookmarksgrove</p>
+<p class="long4">right at the coast of the Semantics, a large</p>
+<p class="long5">language ocean.</p>
+<div class="long15">
+<span class="long6">Learn More</span>
+<span class="long13">&gt;</span>
+</div>
+</div>
+<div class="long10">
+<img class="long7" src="https://cdn2.iconfinder.com/data/icons/seo-flat-6/128/11_Hosting_Service-64.png" alt="">
+<h2 class="long3">Search Engine Optimization</h2>
+<p class="long4">A small river named Duden flows by their</p>
+<p class="long4">place and supplies it with the necessary</p>
+<p class="long4">regelialia. It is a paradisematic country, in</p>
+<p class="long4">which roasted parts of sentences fly into</p>
+<p class="long5">your mouth.</p>
+<div class="long15">
+   <span class="long6">Learn More</span>
+   <span class="long13">&gt;</span>
+   </div>
+</div>
+
+<div class="long11">
+<img class="long8" src="https://cdn2.iconfinder.com/data/icons/seo-flat-6/128/17_Video_Marketing-256.png" alt="">
+<h2 class="long3">Video Editing</h2>
+<p class="long4">Even the all-powerful Pointing has no</p>
+<p class="long4">control about the blind texts it is an almost</p>
+<p class="long4">unorthographic life One day however a</p>
+<p class="long4">small line of blind text by the name of</p>
+<p class="long4">Lorem Ipsum decided to leave for the far</p>
+<p class="long4">World of Grammar.</p>
+<div class="long15">
+   <span class="long6">Learn More</span>
+   <span class="long13">&gt;</span>
+   </div>
+</div>
+</div>
+<span class="time">Blog on 
+<strong class="time1">Medium</strong>
+</span>
+<div class="time7">
+<div class="time3">
+
+<img class="time2" src="https://preview.colorlib.com/theme/rezume/images/post_1.jpg.webp" alt=""><br>
+
+<a class="time34" href="">Creative Product Designer From Facebook</a>
+
+<p class="time4 fix">Even the all-powerful Pointing has no</p>
+
+<p class="time4 fix1">control about the blind texts it is an almost</p>
+
+<p class="time4 fix2">unorthographic.</p>
+
+<i class="fa fa-calendar door"> Aug 7, 2018</i>
+
+<i class="fa fa-comment door1">5 Comments</i>
+</div>
+
+<div class="market1">
+
+<img class="time2" src="https://preview.colorlib.com/theme/rezume/images/post_2.jpg" alt=""><br>
+
+<a class="time34" href="">Creative Product Designer From Facebook</a>
+
+<p class="time4 fix">Even the all-powerful Pointing has no</p>
+
+<p class="time4 fix1">control about the blind texts it is an almost</p>
+
+<p class="time4 fix2">unorthographic.</p>
+
+<i class="fa fa-calendar door"> Aug 7, 2018</i>
+
+<i class="fa fa-comment door1">5 Comments</i>
+
+
+</div>
+
+<div class="market">
+
+<img class="time2" src="https://preview.colorlib.com/theme/rezume/images/post_3.jpg" alt=""><br>
+
+<a class="time34" href="">Creative Product Designer From Facebook</a>
+
+<p class="time4 fix">Even the all-powerful Pointing has no</p>
+
+<p class="time4 fix1">control about the blind texts it is an almost</p>
+
+<p class="time4 fix2">unorthographic.</p>
+
+<i class="fa fa-calendar door"> Aug 7, 2018</i>
+
+<i class="fa fa-comment door1">5 Comments</i>
+</div>
+
+</div>
+ 
+
+<span class="sea5">Get
+   <strong class="sea6">In Touch</strong>
+ </span>
+ 
+<div class="sky15">
+ <div class="sea7">
+   <h2 class="sea10">Get In Touch</h2>
+
+   <input class="sea1" type="text" placeholder="Your Name">
+   <input class="sea2" type="email" placeholder="Your Email">
+   <input class="sea3" type="email" placeholder="Your Phone">
+   <textarea class="sea4" cols="30" rows="10" placeholder="Write a Message"></textarea>
+
+
+   <h2 class="sea11">SEND MESSAGE</h2>
+</div>
+
+<div class="sky20"> 
+
+<h2 class="sky1">My Contact Details</h2>
+
+   <p class="sky2">EMAIL</p>
+   <p class="sky3">site@gmail.com</p>
+   <p  class="sky4">PHONE</p> 
+   <p class="sky5">+30 976 1382 9921</p>
+   <p  class="sky6">FAX</p>
+   <p  class="sky7">+30 976 1382 9922</p>
+   <p  class="sky8">ADDRESS</p>
+   <p  class="sky9">San Francisco, CA</p>
+   <p  class="sky10">4th Floor8 Lower</p>
+   <p  class="sky11">San Francisco street, M1 50F</p>
+
+</div>
+
+</div>
+    <p class="yellow">Copyright © 2023 All rights reserved | This template is made with
+      
+      <img class="yellow1" src="https://cdn-icons-png.flaticon.com/128/2107/2107845.png" alt="Heart">
+
+       by <span class="yellow2">Colorlib<span></p>
+
+    
+  <img class="yellow3" src="https://pngimg.com/d/facebook_logos_PNG19750.png" alt="facebook">
+
+  <img class="yellow4" src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="twitter">
+ 
+  <img class="yellow5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/240px-Instagram_logo_2016.svg.png" alt="intagram">
+   
+  <img class="yellow6" src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya5g47j2.png" alt="linkedin">
+   
+  <img class="yellow7" src="https://static-00.iconduck.com/assets.00/vimeo-icon-2048x2048-3q506knm.png" alt="vimeo">
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+
+
+
+</body>
+</html>
